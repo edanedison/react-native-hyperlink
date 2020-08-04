@@ -97,7 +97,7 @@ class Hyperlink extends Component {
             style={ [ component.props.style, this.props.linkStyle ] }
             { ...this.props.injectViewProps(url) }
           >
-            { truncate(text, 30  }
+            { truncate(text, 100)  }
           </Text>
         )
       })
