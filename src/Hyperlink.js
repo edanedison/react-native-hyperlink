@@ -63,6 +63,11 @@ class Hyperlink extends Component {
       ref: undefined,
       key: undefined,
     }
+    
+     const truncate = (value, length) => {
+	if (value && value.length > length) return `${value.substring(0, length - 3)}...`;
+	return value;
+     };
 
     try {
       this.state.linkifyIt.match(component.props.children).forEach(({ index, lastIndex, text, url }) => {
@@ -92,7 +97,7 @@ class Hyperlink extends Component {
             style={ [ component.props.style, this.props.linkStyle ] }
             { ...this.props.injectViewProps(url) }
           >
-            { text }
+            { truncate(text, 30  }
           </Text>
         )
       })
